@@ -1,0 +1,3 @@
+include cvwww/config/deployment.ini_tmpl
+recursive-include cvwww/public *
+recursive-include cvwww/templates *
