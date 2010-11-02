@@ -12,5 +12,5 @@
 		<li>${h.link_to(u'Dane osobowe', h.url_for(controller = 'pages', action = 'get_page', slug='dane'))}</li>
 		<li>${h.link_to(u'Doświadczenie', h.url_for(controller = 'pages', action = 'get_page', slug='doswiadczenie'))}</li>
 		<li>${h.link_to(u'Umiejętności', h.url_for(controller = 'pages', action = 'get_page', slug='umiejetnosci'))}</li>
-		<li>${h.link_to(u'Projekty', h.url_for(controller = 'pages', action = 'get_page', slug='projekty'))}</li>
+		<li>${h.link_to(u'Projekty', h.url_for(controller = 'projects', action = 'index'), class_="apply-accordion")}</li>
 	</ul>

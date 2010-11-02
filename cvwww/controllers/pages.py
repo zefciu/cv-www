@@ -10,7 +10,6 @@ import cvwww.model as m
 
 log = logging.getLogger(__name__)
 
-@check_ajax
 class PagesController(BaseController):
 
     def index(self):

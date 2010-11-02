@@ -72,23 +72,23 @@ class Project(object):
     pass
 
 orm.mapper(Ability, abilities_table, properties = {
-    'ability_cat' = orm.relationship(AbilityCat, backref = 'abilities',
+    'ability_cat': orm.relationship(AbilityCat, backref = 'abilities_in_cat',
            primaryjoin = (
                abilities_table.c.ability_cat_id == ability_cats_table.c.id
            )),
-    'ability_group' = orm.relationship(AbilityCat, backref = 'abilities',
+    'ability_group': orm.relationship(AbilityCat, backref = 'abilities_in_group',
            primaryjoin = (
                abilities_table.c.ability_group_id == ability_cats_table.c.id
            )),
-}
+})
 
 orm.mapper(AbilityCat, ability_cats_table)
 
 orm.mapper(Page, pages_table)
 
 orm.mapper(Project, projects_table, properties = {
-    'abilities' = orm.relationship(Ability, secondary = abilities_projects_table, backref = 'projects')
-}
+    'abilities': orm.relationship(Ability, secondary = abilities_projects_table, backref = 'projects')
+})
 
 def init_model(engine):
     """Call me before using any of the tables or classes in the model"""
