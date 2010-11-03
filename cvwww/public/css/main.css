@@ -15,3 +15,12 @@
 .clear {
 	clear: both;
 }
+
+.left-bar {
+	width: 250px;
+}
+
+.btn {
+	width: 100%;
+	margin-top: 10px;
+}
