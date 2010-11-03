@@ -1,0 +1,17 @@
+.tiny-box-group {
+	margin-top: 10px;
+}
+
+.tiny-box {
+	float: left;
+	margin-right: 3px;
+	padding: 3px;
+	border-radius: 2px;
+	-moz-border-radius: 5px;
+	background-color: #654b24;
+	color: #fff;
+}
+
+.clear {
+	clear: both;
+}

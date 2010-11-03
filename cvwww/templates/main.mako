@@ -6,6 +6,7 @@
 	${h.javascript_link(h.url_for('/js/jquery-ui.js'))}
 	${h.javascript_link(h.url_for('/js/main-tabs.js'))}
 	${h.stylesheet_link(h.url_for('/css/jquery-ui/jquery-ui.css'))}
+	${h.stylesheet_link(h.url_for('/css/main.css'))}
 </%def>
 <div id="main-tabs">
 	<ul>
