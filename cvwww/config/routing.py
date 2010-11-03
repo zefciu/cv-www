@@ -21,6 +21,7 @@ def make_map(config):
     # CUSTOM ROUTES HERE
     map.connect('/', controller='pages', action='index')
     map.connect('/projekty/', controller='projects', action='index')
+    map.connect('/umiejetnosci/{slug}/', controller='abilities', action="get_abilities")
     map.connect('/{slug}/', controller='pages', action="get_page")
 
     map.connect('/{controller}/{action}')
