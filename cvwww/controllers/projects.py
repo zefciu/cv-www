@@ -11,7 +11,7 @@ log = logging.getLogger(__name__)
 
 class ProjectsController(BaseController):
 
-    # @check_ajax
+    @check_ajax
     def index(self):
         c.projects = m.Session.query(m.Project).all()
         return render('projects.mako')

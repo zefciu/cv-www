@@ -15,6 +15,7 @@ class PagesController(BaseController):
     def index(self):
         return render('/main.mako')
     
+    @check_ajax
     def get_page(self, slug):
         try:
             c.page = m.Session.query(m.Page).filter(m.Page.slug == slug).one()

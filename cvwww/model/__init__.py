@@ -25,13 +25,14 @@ abilities_table = sa.Table(
     sa.Column('ability_cat_id', sa.types.Integer(), sa.ForeignKey('ability_cats.id'), nullable = False),
     sa.Column('ability_group_id', sa.types.Integer(), sa.ForeignKey('ability_cats.id'), nullable = True),
     sa.Column('name', sa.types.Unicode(128)),
+    sa.Column('icon', sa.types.Unicode(128)),
     sa.Column('skill', sa.types.Integer()),
 )
 
 abilities_projects_table = sa.Table(
     'abilities_projects', metadata,
-    sa.Column('ability_id', sa.types.Integer(), sa.ForeignKey('abilities.id')),
-    sa.Column('project_id', sa.types.Integer(), sa.ForeignKey('projects.id')),
+    sa.Column('ability_id', sa.types.Integer(), sa.ForeignKey('abilities.id'), primary_key = True),
+    sa.Column('project_id', sa.types.Integer(), sa.ForeignKey('projects.id'), primary_key = True),
 )
 
 pages_table = sa.Table(

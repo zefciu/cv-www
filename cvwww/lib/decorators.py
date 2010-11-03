@@ -1,6 +1,8 @@
 from pylons import request, tmpl_context as c
+from decorator import decorator
 
-def check_ajax(f, *args, **kwargs):
-        c.ajax = \
-                (request.headers.get('X-Requested-With') is 'XMLHttpRequest')
-        return f(*args, **kwargs)
+@decorator
+def check_ajax(f, self, *args, **kwargs):
+    self.ajax = c.ajax = \
+            (request.headers.get('X-Requested-With') == 'XMLHttpRequest')
+    return f(self, *args, **kwargs)

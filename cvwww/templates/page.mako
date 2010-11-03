@@ -1,8 +1,4 @@
-% if c.ajax:
-<%inherit file="/ajax.mako" />
-% else:
-<%inherit file="/standalone.mako" />
-% endif
+<%inherit file="/skeleton.mako" />
 <%def name="title()">
 ${c.page.title}
 </%def>
