@@ -2,8 +2,8 @@
 	margin-top: 10px;
 }
 
-.tiny-box {
-	float: left;
+.tiny-box,
+.graph-label {
 	margin-right: 3px;
 	padding: 3px;
 	border-radius: 2px;
@@ -12,15 +12,43 @@
 	color: #fff;
 }
 
+.tiny-box {
+	float: left;
+}
+
 .clear {
 	clear: both;
 }
 
 .left-bar {
-	width: 250px;
+	float: left;
+	width: 20%;
 }
 
 .btn {
 	width: 100%;
 	margin-top: 10px;
+}
+
+#graph {
+	margin-top: 10px;
+	float: left;
+	padding: 0 0 0 5px;
+	width: 100%;
+}
+
+/* .graph-line {
+	margin-bottom: 10px;
+} */
+
+.graph-bar {
+	width: 0;
+	height: 10px;
+	margin-bottom: 10px;
+	background-color: #654b24;
+}
+
+.graph-label {
+	width: 100px;
+	margin-bottom: 3px;
 }
