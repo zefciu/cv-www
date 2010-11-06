@@ -13,7 +13,8 @@ function onLoadData(resp) {
 				new_div = $('<div><div class="graph-label"></div><div class="graph-bar"></div></div><br />');
 				new_div.find('.graph-label').append($(this).find('name').text());
 				graph.append(new_div);
-				new_div.find('.graph-bar').animate({width: $(this).find('skill').text() + '%'}, 'slow');
+				bar_len = (parseInt($(this).find('skill').text()) * 6).toString();
+				new_div.find('.graph-bar').animate({width: bar_len + 'px'}, 'slow');
 			});
 	}
 }
