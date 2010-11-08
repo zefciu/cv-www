@@ -33,7 +33,7 @@ abilities_table = sa.Table(
             'projects_id_seq', optional= True
         ), primary_key = True
     ),
-    sa.Column('ability_cat_id', sa.types.Integer(), sa.ForeignKey('ability_cats.id'), nullable = False),
+    sa.Column('ability_cat_id', sa.types.Integer(), sa.ForeignKey('ability_cats.id'), nullable = True),
     sa.Column('ability_group_id', sa.types.Integer(), sa.ForeignKey('ability_groups.id'), nullable = True),
     sa.Column('name', sa.types.Unicode(128), nullable = False),
     sa.Column('icon', sa.types.Unicode(128), nullable = True),
@@ -87,20 +87,21 @@ class Project(object):
     pass
 
 orm.mapper(Ability, abilities_table, properties = {
-    'ability_cat': orm.relationship(AbilityCat, backref = 'abilities'),
-    'ability_group': orm.relationship(AbilityGroup, backref = 'abilities'),
 })
 
-orm.mapper(AbilityCat, ability_cats_table)
+orm.mapper(AbilityCat, ability_cats_table, properties = {
+    'abilities': orm.relationship(Ability, backref = 'ability_cat', order_by = [abilities_table.c.skill.desc()]),
+})
 
 orm.mapper(AbilityGroup, ability_groups_table, properties = {
-    'ability_cat': orm.relationship(AbilityCat, backref = 'ability_groups')
+    'abilities' : orm.relationship(Ability, backref = 'ability_group', order_by = [abilities_table.c.skill.desc()]),
+    'ability_cat': orm.relationship(AbilityCat, backref = 'ability_groups'),
 })
 
 orm.mapper(Page, pages_table)
 
 orm.mapper(Project, projects_table, properties = {
-    'abilities': orm.relationship(Ability, secondary = abilities_projects_table, backref = 'projects')
+    'abilities': orm.relationship(Ability, secondary = abilities_projects_table, backref = 'projects'),
 })
 
 def init_model(engine):

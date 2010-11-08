@@ -13,5 +13,5 @@ class ProjectsController(BaseController):
 
     @check_ajax
     def index(self):
-        c.projects = m.Session.query(m.Project).all()
+        c.projects = m.Session.query(m.Project).order_by(m.Project.id).all()
         return render('projects.mako')

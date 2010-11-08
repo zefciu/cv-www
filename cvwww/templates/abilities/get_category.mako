@@ -10,7 +10,7 @@
 <category>
 	% if c.cat.ability_groups:
 		% for group in c.cat.ability_groups:
-			<group>
+			<group name="${group.name}">
 				${list_abilities(group.abilities)}
 			</group>
 		% endfor;

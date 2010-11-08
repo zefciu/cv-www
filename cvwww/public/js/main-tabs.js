@@ -2,20 +2,30 @@ function loadData(url) {
 	$.get(url, null, onLoadData, 'xml')
 }
 
+function list_abilities(graph, abilities) {
+	abilities.each(function () {
+			new_div = $('<div><div class="graph-label"></div><div class="graph-bar"></div></div><br />');
+			new_div.find('.graph-label').append($(this).find('name').text());
+			skill = $(this).find('skill').text();
+			new_div.attr('title', skill + '%');
+			graph.append(new_div);
+			bar_len = (parseInt(skill) * 6).toString();
+			new_div.find('.graph-bar').animate({width: bar_len + 'px'}, 'slow');
+		});
+}
+
 function onLoadData(resp) {
 	var groups, abilities, graph, new_div;
 	graph = $('#graph')
 	graph.empty();
 	if ((groups = $(resp).find('group')).length) {
+		groups.each(function () {
+				graph.append('<h3>' + $(this).attr('name') + '</h3>');
+				list_abilities(graph, $(this).find('ability'));
+			});
 	} else {
 		abilities = $(resp).find('ability');
-		abilities.each(function () {
-				new_div = $('<div><div class="graph-label"></div><div class="graph-bar"></div></div><br />');
-				new_div.find('.graph-label').append($(this).find('name').text());
-				graph.append(new_div);
-				bar_len = (parseInt($(this).find('skill').text()) * 6).toString();
-				new_div.find('.graph-bar').animate({width: bar_len + 'px'}, 'slow');
-			});
+		list_abilities(graph, abilities);
 	}
 }
 

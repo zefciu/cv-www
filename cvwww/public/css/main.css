@@ -1,3 +1,7 @@
+body {
+	font-size: 10pt;
+}
+
 #main-tabs {
 	width: 1000px;
 	left: 50%;
@@ -59,4 +63,19 @@
 	width: 100px;
 	margin-bottom: 3px;
 	float: left;
+}
+
+
+dt {
+	font-weight: bold;
+	float: left;
+}
+
+dt:after {
+	content: ':';
+}
+
+dd {
+	margin-left: 300px;
+	margin-bottom: 20px;
 }
